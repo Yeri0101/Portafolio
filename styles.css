@@ -74,14 +74,24 @@ html, body {
 
 }
 
-.activedropdown-content {
-  display: block !important;
+/* --------dropdown--------- */
+
+.dropdown {
+  float: right;
+  width: 100%;
 }
 
 .dropdown-content  {
   float: right;
   margin-top: 10px;
+
 }
+
+.activedropdown-content {
+  display: block !important;
+}
+
+
 
 @media screen and (max-width: 800px) {
 
@@ -91,12 +101,11 @@ html, body {
 
    .dropdown-content {
    display: none;
-
+   width: 100%;
    }
 
   .nav-bar-btn {
     height: 125px;
-    width: 100%;
     background-color: rgb(62, 163, 163, 0.2);
     transition: background-color 0.8s;
     transition: 0.6s;
@@ -142,8 +151,8 @@ html, body {
 /* -------Info-------- */
 
 #name {
-  margin-top: 100px !important;
-margin-bottom: 25px;
+  margin-top: 90px !important;
+  margin-bottom: 25px;
   color: white;
   margin-left: 8px;
   font-family: 'Fira Code', monospace;
