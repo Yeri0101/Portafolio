@@ -3,6 +3,9 @@ html, body {
   background-color: #2D2E32 !important;
   height: 100%;
   margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
 }
 
 * {
@@ -14,7 +17,7 @@ html, body {
 
 
   .bars__menu{
-    display: none;
+    display: none;;
     width: 30px;
     height: 30px;
     margin-top: 22px;
@@ -23,6 +26,23 @@ html, body {
     cursor: pointer;
 }
 
+.navbar-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border: solid 1px rgb(63, 163, 163, 0.1);
+  opacity: 0.9;
+  z-index: 1000;
+  transition: top 0.6s ease-in-out;
+}
+
+.navbar-container.hidden {
+  top: -100px; /* altura suficiente para ocultar el elemento */
+}
+
+
+
+
 .bars__menu span {
     display: block;
     width: 100%;
@@ -30,8 +50,9 @@ html, body {
     background: rgb(62, 163, 163);
     margin-top: 7px;
     transform-origin: 0px 100%;
-    transition: all 300ms;
+    transition: all 500ms;
 }
+
 
 .activeLine1-Bars-menu{
     transform: rotate(45deg) translate(-2px, 1px);
@@ -79,18 +100,30 @@ html, body {
 .dropdown {
   float: right;
   width: 100%;
+  height: 230px;
+  margin: 0px;
+  margin-top: 0px;
+  scroll-margin-right: 0px;
+  background-color: #2D2E32
 }
 
 .dropdown-content  {
+  display: block;
   float: right;
-  margin-top: 10px;
+  margin-top: 5px;
 
 }
+
+.dropdown-content a {
+  justify-content: flex-start;
+}
+
 
 .activedropdown-content {
-  display: block !important;
-}
-
+ display: block;
+ float: right;
+ margin-top: 10px;
+ }
 
 
 @media screen and (max-width: 800px) {
@@ -99,18 +132,33 @@ html, body {
     display: block;
   }
 
-   .dropdown-content {
-   display: none;
-   width: 100%;
-   }
+  .dropdown-content {
+    width: 60%;
+    width: 100%;
+    height: 0;
+    margin-top: 52.8px;
+    position: relative;
+    overflow: hidden;
+    transition: height 0.5s ease-in-out;
+    z-index: 999;
+  }
+
+  .dropdown-content a {
+    display: block;
+  }
+
+
+  .dropdown-content.active {
+    display: block;
+    height: 158px;
+  }
+
 
   .nav-bar-btn {
     height: 125px;
     background-color: rgb(62, 163, 163, 0.2);
     transition: background-color 0.8s;
     transition: 0.6s;
-
-
   }
 
   .nav-bar-btn :hover {
@@ -130,28 +178,104 @@ html, body {
 
   }
 
-  .dropdown-content a {
-    display: block;
-    justify-content: flex-start;
-    margin-top: 3px;
-
-  }
-
   .bnt-custom {
-    background-color: #2D2E32 !important;
+    background-color: transparent;
     color: #2D2E32;
-    outline: none;
+    margin-top: 1px;
+  }
+
+  .greeting {
+    margin: 0px 0px 20px 2px;
+  }
+
+  #big-heading {
+    margin: 0px;
+    font-size: clamp(40px, 8vw, 80px);
+  }
+
+  .link-chat {
+    color: #ffffff; /* Color A */
+    animation: color-transition 1.5s infinite alternate;
+  }
+
+  @keyframes color-transition {
+    5% {
+      color: #ffffff; /* Color A */
+    }
+    100% {
+      color:  rgb(62, 163, 163);
+    }
+  }
+
+
+  #img {
+    margin-right: 50px;
+    width: 270px;
+    height: 230px;
 
   }
 
+  .card-container {
+
+    margin-left: 7px !important;
+  }
+
+  .card-project {
+    display: block;
+    width: 340px !important;
+    height: 270px !important;
+
+
+  }
+
+  .fa-regular.fa-folder {
+    font-size: 20px !important;
+    margin-top: 20px !important;
+    margin-left: 10px !important;
+    transition: 0.6s !important;
+  }
+
+  .fa-regular.fa-folder:hover {
+    transform: scale(1.05, 1.05) !important;
+  }
+
+  .about {
+    color: white;
+    width: 150px;
+  /* margin-right: 200px; */
+    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-left: 0px;
+
+
+  /* grid-row: 5; */
+  }
 
 
 }
 
+
+
+
+
+
 /* -------Info-------- */
 
-#name {
-  margin-top: 90px !important;
+.greeting {
+  margin-top: 15px;
+}
+
+#greeting {
+  margin-top: 80px;
+  margin-left: 9px;
+  font-size: 13px;
+  color: rgb(62, 163, 163);
+
+
+}
+
+#big-heading {
+
   margin-bottom: 25px;
   color: white;
   margin-left: 8px;
@@ -159,7 +283,7 @@ html, body {
   transition: 0.6s;
 }
 
-#name:hover {
+#big-heading:hover {
  transform: scale(1.05, 1.05);
 }
 
@@ -169,8 +293,6 @@ html, body {
   background-color:  rgb(62, 163, 163);
   cursor: pointer;
   font-family: 'Fira Code', monospace;
-  width: 255px;
-  height: 40px;
   margin-left: 8px;
   padding: 0.680rem 0.75rem;
   text-decoration: none;
@@ -219,7 +341,7 @@ transform: scale(1.05, 1.05);
   transform: scale(1.05, 1.05);
 }
 
-.chat {
+.Get-in-touch  {
   color: white;
   font-size: 35px;
   margin-left: 8px;
@@ -239,6 +361,40 @@ transform: scale(1.2, 1.2);
 .img-fluid {
   float: right;
 }
+
+
+/* ----Projects----- */
+
+.card-project{
+
+  border: solid 1px rgb(63, 163, 163, 0.1);
+  border-radius: 3px;
+  background-color: #2D2E32;
+  width: 200px;
+  height: 150px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 60px;
+  transition: transform 0.6s ease-in-out;
+}
+
+.px-5 {
+  padding: -25px !important;
+}
+
+
+.card-project:hover {
+  transform: translateY(-10px) scale(1.05);
+}
+
+
+.fa-regular.fa-folder {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-left: 10px;
+  transition: 0.6s;
+}
+
 
 /* .img {
   width: 400px;
@@ -291,44 +447,6 @@ transform: scale(1.2, 1.2);
 
 
 
-.btn-mobile{
-display: inline-block;
-text-align: center;
-text-decoration: none;
-color: white;
-font-family: 'Fira Code', monospace;
-border: solid 1px rgb(70, 121, 146, 0.8);
-border-radius: 3px;
-width: 150px;
-height: 30px;
-margin-left: 1em;
-transition: 0.8s;
-}
-
-.btn-mobile:hover {
-  color:  rgb(62, 163, 163);
-}
-
-.btn-web {
-  text-decoration: none;
-  border-radius:  1px rgb(70, 121, 146, 0);
-}
-
-
-.btn-web:hover {
-  color:  rgb(62, 163, 163);
-}
-
-.carousel{
-
-border: solid 1px white;
-width: 600px;
-height: 320px;
-margin-top: 10px;
-
-}
-
-
 .btn-light {
 color:  rgb(245, 246, 246)!important;
 animation: 0.8s;
@@ -345,20 +463,26 @@ animation: 0.8s;
 
 /* -------------------------------------------------------------- */
 
+.card-container-background {
+
+  background-color: #25262A;
+  border: solid 1px rgb(63, 163, 163, 0.1);
+}
 
 
 .card-container {
-  /* border:1px solid white; */
-  max-width: 100%;
-  margin-left: 0px;
+
   display: flex;
-  /* flex-flow: row wrap; */
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content:space-around;
+  max-width: 80%;
+  margin-top: 15px;
+  margin-left: 15%;
   background-color: #25262A;
 
 }
+
+
 
 .icon-container {
   display: block;
@@ -372,15 +496,6 @@ animation: 0.8s;
 
 }
 
- .card {
-
-  background-color: #2D2E32 !important;
-  background-clip: border-box;
-  border: 1px solid rgb(70, 121, 146) !important;
-  border-radius: 0.25rem;
-  margin-left: 10px;
-
-}
 
 .my-5 {
   width: 350px;
@@ -400,14 +515,14 @@ animation: 0.8s;
 
 /* //------------------------------ */
 
-.about {
-color: white;
-width: 500px;
-height: 320px;
-margin-top: 0px;
+.about-me{
+  color: white;
+  width: 100%;
 /* margin-right: 200px; */
-margin-bottom: 10px;
-margin-top: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 1px;
+
 
 /* grid-row: 5; */
 }
@@ -415,42 +530,20 @@ margin-top: 10px;
 .about-p {
   /* display: flex;
   justify-content: center; */
-  display: flex;
-  justify-content: center;
+
   color: rgb(92 179 223);
 }
 
+footer {
+  width: 100%;
+}
 
 
-/* .footer-basic {
-
-} */
-
-/* .footer {
-  margin-top: -51px;
-} */
-
-/* .footer-basic ul {
-  position: absolute;
-  padding: 0;
-  top: 70px;
-  left: 770px;
-  margin-top: -49px;
-  list-style: none;
-  text-align: center;
-  font-size: 10px;
-  line-height: 1.6;
-  margin-bottom: 0;
-} */
-
-/* .footer-basic li {
-  padding: 0 10px;
-} */
-
-/* #ul {
-  margin-bottom: -6px;
-    margin-top: 18px;
-} */
+ .footer-content {
+  background-color: #25262A;
+  border: solid 1px rgb(63, 163, 163, 0.1);
+  width: 100%;
+}
 
 .ul-list {
   background-color: #2D2E32;
@@ -479,7 +572,7 @@ padding: 0px !important;
 
 }
 
- .footer-company-name {
+ .footer-company-big-heading {
 font-size: 10px;
 margin-top: 5px;
 color: white;
@@ -496,10 +589,10 @@ color: white;
 }
 
 
-
+/*
 
 .social > a {
-  /* font-size:17px;
+   font-size:17px;
   width: 30px;
   height:30px;
   line-height:32px;
@@ -510,8 +603,8 @@ color: white;
   margin-top:  10px;
   margin-left: 25px;
   color:inherit;
-  opacity:0.75; */
-}
+  opacity:0.75;
+} */
 
 .footer-basic .social > a:hover {
   opacity:0.9;
